@@ -3,6 +3,7 @@ package com.geekmanish.wallpapers.wallpaper;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
@@ -40,6 +41,7 @@ public class WallpaperActivity extends AppCompatActivity implements
         wallpaperTarget = new Target() {
             @Override
             public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
+
                 wallpaperView.setImage(ImageSource.bitmap(bitmap));
                 hideProgressWheel();
             }
@@ -61,6 +63,16 @@ public class WallpaperActivity extends AppCompatActivity implements
             wallpaperPresenter.displayById(id);
         } else {
             onError(getString(R.string.wp_null_error));
+        }
+
+        // Setup nav
+        setupNav();
+    }
+
+    private void setupNav() {
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
         }
     }
 
