@@ -1,0 +1,76 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:wheel="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000">
+
+    <com.github.fafaldo.fabtoolbar.widget.FABToolbarLayout
+        android:id="@+id/fabtoolbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:bottomMargin="10dp"
+        app:containerId="@+id/fabtoolbar_container"
+        app:fabId="@+id/fabtoolbar_fab"
+        app:fabToolbarId="@+id/fabtoolbar_toolbar"
+        app:fadeInFraction="0.2"
+        app:hideDuration="200"
+        app:rightMargin="10dp"
+        app:showDuration="400">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.pnikosis.materialishprogress.ProgressWheel
+                android:id="@+id/progress_wheel"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_centerInParent="true"
+                wheel:matProg_barColor="#5588FF"
+                wheel:matProg_progressIndeterminate="true"/>
+
+            <com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
+                android:id="@+id/ssiv_wallpaper"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@id/fabtoolbar_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true">
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fabtoolbar_fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_add"
+                app:fabSize="normal"/>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/fabtoolbar_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/one"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_error"/>
+        </LinearLayout>
+
+    </com.github.fafaldo.fabtoolbar.widget.FABToolbarLayout>
+</RelativeLayout>
