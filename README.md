@@ -1,4 +1,4 @@
-Fetch wallpapers from reddit and display in an interative app with options to:
+Fetch wallpapers from Reddit and display in an interative app with options to:
 
 * Share wallpaper
 
@@ -10,16 +10,16 @@ Fetch wallpapers from reddit and display in an interative app with options to:
 
 Liraries/ORM used:
 
-[Butter Knife](https://github.com/JakeWharton/butterknife)
+* [Butter Knife](https://github.com/JakeWharton/butterknife)
 
-[Sugar ORM](https://github.com/satyan/sugar)
+* [Sugar ORM](https://github.com/satyan/sugar)
 
-[OkHttp](https://github.com/square/okhttp)
+* [OkHttp](https://github.com/square/okhttp)
 
-[Picasso](https://github.com/square/picasso)
+* [Picasso](https://github.com/square/picasso)
 
-[Materialish Progress](https://github.com/pnikosis/materialish-progress)
+* [Materialish Progress](https://github.com/pnikosis/materialish-progress)
 
-[Subsampling Scale Image View](https://github.com/davemorrissey/subsampling-scale-image-view)
+* [Subsampling Scale Image View](https://github.com/davemorrissey/subsampling-scale-image-view)
 
-[Fab Toolbar](https://github.com/AlexKolpa/fab-toolbar)
+* [Fab Toolbar](https://github.com/AlexKolpa/fab-toolbar)
