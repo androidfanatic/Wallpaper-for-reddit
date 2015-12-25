@@ -1,5 +1,6 @@
 package com.geekmanish.wallpapers.wallpaper;
 
+import android.opengl.GLES10;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -17,6 +18,8 @@ import com.github.fafaldo.fabtoolbar.widget.FABToolbarLayout;
 import com.pnikosis.materialishprogress.ProgressWheel;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
+
+import javax.microedition.khronos.opengles.GL10;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -93,7 +96,11 @@ public class WallpaperActivity extends AppCompatActivity implements
     }
 
     @Override public void setWallpaper(Wallpaper wallpaper) {
-        Picasso.with(this).load(wallpaper.getFullUrl()).into(wallpaperTarget);
+        int[] maxSize = new int[1];
+        GLES10.glGetIntegerv(GL10.GL_MAX_TEXTURE_SIZE, maxSize, 0);
+        Picasso.with(this)
+                .load(wallpaper.getFullUrl())
+                .into(wallpaperTarget);
         setFavoriteIcon(wallpaper.isFavorite());
     }
 
