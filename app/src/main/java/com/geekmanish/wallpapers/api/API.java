@@ -41,7 +41,7 @@ public class API implements Callback {
                         } else {
                             id = url.substring(slash);
                         }
-                        new Wallpaper(id).save();
+                        new Wallpaper(id).saveUnique();
                     }
                 }
             }

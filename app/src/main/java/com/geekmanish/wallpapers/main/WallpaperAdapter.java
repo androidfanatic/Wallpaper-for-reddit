@@ -19,8 +19,8 @@ import butterknife.OnClick;
 
 public class WallpaperAdapter extends RecyclerView.Adapter<WallpaperAdapter.Holder> {
 
+    protected List<Wallpaper> wallpapers;
     private MainView view;
-    private List<Wallpaper> wallpapers;
 
     public WallpaperAdapter(MainView view) {
         this.view = view;
@@ -38,11 +38,10 @@ public class WallpaperAdapter extends RecyclerView.Adapter<WallpaperAdapter.Hold
     }
 
     @Override public void onBindViewHolder(Holder holder, int position) {
-
-        final Wallpaper wallpaper = wallpapers.get(position);
-        final ImageView imageView = holder.imageView;
-        Picasso.with(imageView.getContext()).load(wallpaper.getIconUrl()).into(imageView);
-
+        Picasso.with(holder.imageView.getContext())
+                .load(wallpapers.get(position).getIconUrl())
+                .into(holder.imageView);
+        holder.placeholder.setVisibility(View.INVISIBLE);
     }
 
     @Override public int getItemCount() {
@@ -52,6 +51,7 @@ public class WallpaperAdapter extends RecyclerView.Adapter<WallpaperAdapter.Hold
     public class Holder extends RecyclerView.ViewHolder {
 
         @Bind(R.id.iv_wallpaper) GridImageItem imageView;
+        @Bind(R.id.iv_placeholder) ImageView placeholder;
 
         public Holder(View view) {
             super(view);

@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.geekmanish.wallpapers.R;
+import com.geekmanish.wallpapers.favorites.FavoritesActivity;
 import com.geekmanish.wallpapers.models.Wallpaper;
 import com.geekmanish.wallpapers.wallpaper.WallpaperActivity;
 
@@ -17,12 +18,13 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements
-        SwipeRefreshLayout.OnRefreshListener, MainView {
+        SwipeRefreshLayout.OnRefreshListener,
+        MainView {
 
     @Bind(R.id.rv_wallpapers) RecyclerView wallpaperRecyclerView;
     @Bind(R.id.srl_main) SwipeRefreshLayout swipeRefreshLayout;
-    private MainPresenter presenter;
     private WallpaperAdapter wallpaperAdapter;
+    private MainPresenter presenter;
     private GridLayoutManager gridLayoutManager;
     private WallpaperItemDecoration wallpaperItemDecoration;
 
@@ -46,15 +48,18 @@ public class MainActivity extends AppCompatActivity implements
         wallpaperAdapter = new WallpaperAdapter(this);
         wallpaperItemDecoration = new WallpaperItemDecoration(this, R.dimen.item_offset);
 
-
         wallpaperRecyclerView.setLayoutManager(gridLayoutManager);
         wallpaperRecyclerView.setAdapter(wallpaperAdapter);
         wallpaperRecyclerView.addItemDecoration(wallpaperItemDecoration);
     }
 
+    protected void setAdapter(WallpaperAdapter wallpaperAdapter) {
+        this.wallpaperAdapter = wallpaperAdapter;
+        wallpaperRecyclerView.setAdapter(wallpaperAdapter);
+    }
+
     @Override public void onRefresh() {
         presenter.fetchWallpapers();
-        wallpaperAdapter.refresh();
     }
 
     @Override public void onFetchComplete() {
@@ -67,6 +72,10 @@ public class MainActivity extends AppCompatActivity implements
     }
 
     @Override public void onWallpaperItemClick(Wallpaper wallpaper) {
+        startWallpaperActivity(wallpaper);
+    }
+
+    @Override public void startWallpaperActivity(Wallpaper wallpaper) {
         Intent intent = new Intent(this, WallpaperActivity.class);
         intent.putExtra("id", wallpaper.getId());
         startActivity(intent);
@@ -78,6 +87,18 @@ public class MainActivity extends AppCompatActivity implements
     }
 
     @Override public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_favorites:
+                startFavActivity();
+                return true;
+            case R.id.action_about:
+                return true;
+        }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void startFavActivity() {
+        Intent intent = new Intent(this, FavoritesActivity.class);
+        startActivity(intent);
     }
 }

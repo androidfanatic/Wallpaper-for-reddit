@@ -1,6 +1,11 @@
 <resources>
     <string name="app_name">Wallpapers</string>
     <string name="title_activity_wallpaper">Wallpaper</string>
-    <string name="wp_null_error">Error getting wallpaper. Press back and try again.</string>
+    <string name="wp_null_error">Error getting wallpaper. Try again.</string>
     <string name="wp_fetch_error">Unable to get wallpaper.</string>
+    <string name="about">About</string>
+    <string name="settings">Settings</string>
+    <string name="fav_added">Added to favorites.</string>
+    <string name="fav_removed">Removed from favorites.</string>
+    <string name="title_activity_favorites">Favorites</string>
 </resources>

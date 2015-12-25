@@ -1,3 +1,4 @@
 <resources>
     <dimen name="item_offset">3dp</dimen>
+    <dimen name="progress_size">80dp</dimen>
 </resources>

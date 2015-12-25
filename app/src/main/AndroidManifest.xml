@@ -4,7 +4,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.write_external_storage"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:name="com.orm.SugarApp"
@@ -12,12 +12,13 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
+
         <meta-data
             android:name="DATABASE"
             android:value="wallpapers.db"/>
         <meta-data
             android:name="VERSION"
-            android:value="2"/>
+            android:value="3"/>
         <meta-data
             android:name="QUERY_LOG"
             android:value="true"/>
@@ -37,6 +38,15 @@
         <activity
             android:name=".wallpaper.WallpaperActivity"
             android:label="@string/title_activity_wallpaper"
+            android:parentActivityName=".main.MainActivity"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".main.MainActivity"/>
+        </activity>
+        <activity
+            android:name=".favorites.FavoritesActivity"
+            android:label="@string/title_activity_favorites"
             android:parentActivityName=".main.MainActivity"
             android:theme="@style/AppTheme">
             <meta-data
