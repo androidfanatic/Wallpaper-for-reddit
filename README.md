@@ -14,7 +14,7 @@ Liraries/ORM used:
 
 [Sugar ORM](https://github.com/satyan/sugar)
 
-[OKHTTP](https://github.com/square/okhttp)
+[OkHttp](https://github.com/square/okhttp)
 
 [Picasso](https://github.com/square/picasso)
 
