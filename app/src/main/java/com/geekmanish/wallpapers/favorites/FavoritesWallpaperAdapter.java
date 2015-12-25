@@ -12,6 +12,7 @@ public class FavoritesWallpaperAdapter extends WallpaperAdapter {
 
     @Override public void refresh() {
         // Todo fix this
+        // 0 / 1 to true/false
         wallpapers = Wallpaper.find(Wallpaper.class, "favorite = ?", "1");
         System.out.println("Size: " + wallpapers.size());
         notifyDataSetChanged();

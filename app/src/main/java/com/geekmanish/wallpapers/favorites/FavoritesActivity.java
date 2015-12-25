@@ -8,6 +8,7 @@ public class FavoritesActivity extends MainActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // Update adapter
         setAdapter(new FavoritesWallpaperAdapter(this));
     }
 }

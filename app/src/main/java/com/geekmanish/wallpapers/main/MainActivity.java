@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity implements
         wallpaperRecyclerView.addItemDecoration(wallpaperItemDecoration);
     }
 
-    protected void setAdapter(WallpaperAdapter wallpaperAdapter) {
+    @Override public void setAdapter(WallpaperAdapter wallpaperAdapter) {
         this.wallpaperAdapter = wallpaperAdapter;
         wallpaperRecyclerView.setAdapter(wallpaperAdapter);
     }
