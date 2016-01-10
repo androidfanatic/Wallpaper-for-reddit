@@ -6,7 +6,7 @@ import android.graphics.drawable.Drawable;
 import com.davemorrissey.labs.subscaleview.ImageSource;
 import com.geekmanish.wallpapers.R;
 import com.geekmanish.wallpapers.models.Wallpaper;
-import com.geekmanish.wallpapers.utils.WallpaperIO;
+import com.geekmanish.wallpapers.utils.WallpaperIOUtils;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 
@@ -23,8 +23,9 @@ public class WallpaperTarget implements Target {
 
     @Override
     public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
-        WallpaperIO.saveBitmap(bitmap, wallpaper);
+        WallpaperIOUtils.saveBitmap(bitmap, wallpaper);
         view.setWallpaperImage(ImageSource.bitmap(bitmap));
+        view.setLoaded(true);
         view.hideProgressWheel();
     }
 

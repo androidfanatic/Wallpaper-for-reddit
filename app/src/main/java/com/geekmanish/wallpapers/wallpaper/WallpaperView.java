@@ -21,4 +21,6 @@ public interface WallpaperView {
     void setFavoriteIcon(boolean favorite);
 
     void onFavIconSet(boolean favorite);
+
+    void setLoaded(boolean b);
 }

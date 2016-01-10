@@ -13,11 +13,10 @@ import com.davemorrissey.labs.subscaleview.ImageSource;
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import com.geekmanish.wallpapers.R;
 import com.geekmanish.wallpapers.models.Wallpaper;
-import com.geekmanish.wallpapers.utils.WallpaperIO;
+import com.geekmanish.wallpapers.utils.WallpaperIOUtils;
 import com.github.fafaldo.fabtoolbar.widget.FABToolbarLayout;
 import com.pnikosis.materialishprogress.ProgressWheel;
 import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Target;
 
 import javax.microedition.khronos.opengles.GL10;
 
@@ -36,8 +35,9 @@ public class WallpaperActivity extends AppCompatActivity implements
     @Bind(R.id.fabtoolbar) FABToolbarLayout fabToolbarLayout;
 
     private WallpaperPresenter presenter;
-    private Target wallpaperTarget;
+    private WallpaperTarget wallpaperTarget;
     private Toast toast;
+    private boolean loaded = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +62,12 @@ public class WallpaperActivity extends AppCompatActivity implements
 
         // Setup nav
         setupNav();
+
+        findViewById(R.id.fabtoolbar_fab).setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View view) {
+                msg("Sajjin!");
+            }
+        });
     }
 
     private void onFatalError() {
@@ -117,15 +123,27 @@ public class WallpaperActivity extends AppCompatActivity implements
     }
 
     @OnClick(R.id.btn_share) public void share(View view) {
-        WallpaperIO.share(this, presenter.getWallpaper());
+        if (isLoaded()) {
+            WallpaperIOUtils.share(this, presenter.getWallpaper());
+        } else {
+            msg("Waiting for wallpaper to load.");
+        }
     }
 
     @OnClick(R.id.btn_setwallpaper) public void setWallpaper(View view) {
-        WallpaperIO.setWallpaper(this, presenter.getWallpaper());
+        if (isLoaded()) {
+            WallpaperIOUtils.setWallpaper(this, presenter.getWallpaper());
+        } else {
+            msg("Waiting for wallpaper to load.");
+        }
     }
 
     @OnClick(R.id.btn_favorite) public void favorite(View view) {
-        presenter.toggleFavorite();
+        if (isLoaded()) {
+            presenter.toggleFavorite();
+        } else {
+            msg("Waiting for wallpaper to load.");
+        }
     }
 
     @Override public void onBackPressed() {
@@ -163,4 +181,11 @@ public class WallpaperActivity extends AppCompatActivity implements
         return super.onOptionsItemSelected(item);
     }
 
+    public boolean isLoaded() {
+        return loaded;
+    }
+
+    @Override public void setLoaded(boolean loaded) {
+        this.loaded = loaded;
+    }
 }

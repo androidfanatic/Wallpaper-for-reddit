@@ -16,7 +16,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-public class WallpaperIO {
+public class WallpaperIOUtils {
 
     private static String dir = Environment.getExternalStorageDirectory().toString() + "/mwallpaper/";
     private static String MIME_TYPE = "image/png";
@@ -82,7 +82,7 @@ public class WallpaperIO {
             public void run() {
                 WallpaperManager myWallpaperManager = WallpaperManager.getInstance(activity.getApplicationContext());
                 try {
-                    Bitmap bitmap = WallpaperIO.getBitmap(path);
+                    Bitmap bitmap = WallpaperIOUtils.getBitmap(path);
                     if (bitmap != null) {
                         myWallpaperManager.setBitmap(bitmap);
                     }
@@ -103,7 +103,7 @@ public class WallpaperIO {
     }
 
     public static void share(Activity activity, Wallpaper wallpaper) {
-        String path = WallpaperIO.getPath(wallpaper);
+        String path = WallpaperIOUtils.getPath(wallpaper);
         Intent share = new Intent(Intent.ACTION_SEND);
         share.setType(MIME_TYPE);
         share.putExtra(Intent.EXTRA_STREAM, Uri.parse(path));
