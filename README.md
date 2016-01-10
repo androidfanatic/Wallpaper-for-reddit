@@ -1,12 +1,8 @@
 Fetch wallpapers from Reddit and display in an interative app with options to:
 
-* Share wallpaper
-
-* Set wallpaper
-
-* Save favorites
-
 ![Screenshot](device-2015-12-25-150338.png "Screenshot")
+
+* Set, share wallpaper and save as favorite
 
 Liraries/ORM used:
 
