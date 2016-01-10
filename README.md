@@ -4,7 +4,7 @@ Fetch wallpapers from Reddit and display in an interative app with options to:
 
 * Set, share wallpaper and save as favorite
 
-Liraries/ORM used:
+Libraries used:
 
 * [Butter Knife](https://github.com/JakeWharton/butterknife)
 
