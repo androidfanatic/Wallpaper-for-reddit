@@ -1,8 +1,11 @@
-Fetch wallpapers from Reddit and display in an interative app with options to:
 
-![Screenshot](device-2016-01-21-084302.png "Screenshot") ![Screenshot](device-2015-12-25-150338.png "Screenshot")
+![Screenshot](ss1.png "Screenshot") ![Screenshot](ss2.png "Screenshot") ![Screenshot](ss3.png "Screenshot")
 
-* Set, share wallpaper and save as favorite
+A demo app that consumes json data from /r/wallpapers
+
+Features:
+
+* Set, share wallpaper and save (as favorite)
 
 Libraries used:
 
