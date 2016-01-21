@@ -1,8 +1,6 @@
 Fetch wallpapers from Reddit and display in an interative app with options to:
 
-![Screenshot](device-2016-01-21-084302.png "Screenshot")
-
-![Screenshot](device-2015-12-25-150338.png "Screenshot")
+![Screenshot](device-2016-01-21-084302.png "Screenshot") ![Screenshot](device-2015-12-25-150338.png "Screenshot")
 
 * Set, share wallpaper and save as favorite
 
