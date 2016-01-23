@@ -7,6 +7,8 @@ Features:
 
 * Set, share wallpaper and save (as favorite)
 
+Latest release: [https://github.com/androidfanatic/Wallpaper-for-reddit/releases/download/v1.0/app-release.apk](https://github.com/androidfanatic/Wallpaper-for-reddit/releases/download/v1.0/app-release.apk)
+
 Libraries used:
 
 * [Butter Knife](https://github.com/JakeWharton/butterknife)
