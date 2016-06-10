@@ -8,6 +8,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Environment;
+import android.util.Log;
 
 import com.geekmanish.wallpapers.models.Wallpaper;
 import com.geekmanish.wallpapers.wallpaper.WallpaperActivity;
@@ -30,11 +31,12 @@ public class WallpaperIOUtils {
                 File folder = new File(dir);
                 // folder exists or create it
                 // and then check if file exists
-                if ((folder.exists() || folder.mkdir()) && !exists(path)) {
+                if ((folder.exists() || folder.mkdirs()) && !exists(path)) {
                     FileOutputStream out = null;
                     try {
                         out = new FileOutputStream(path);
                         bmp.compress(Bitmap.CompressFormat.PNG, 100, out);
+                        Log.e("O", "saved");
                     } catch (Exception e) {
                         e.printStackTrace();
                     } finally {

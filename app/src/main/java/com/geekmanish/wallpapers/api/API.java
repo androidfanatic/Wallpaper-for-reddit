@@ -14,7 +14,7 @@ import java.io.IOException;
 
 public class API implements Callback {
 
-    private final String URL = "http://www.reddit.com/r/wallpapers.json";
+    private final String URL = "https://www.reddit.com/r/wallpapers.json";
     private MainPresenter presenter;
 
     public API(MainPresenter presenter) {

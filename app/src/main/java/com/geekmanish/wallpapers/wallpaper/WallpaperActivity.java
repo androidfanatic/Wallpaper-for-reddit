@@ -1,8 +1,14 @@
 package com.geekmanish.wallpapers.wallpaper;
 
+import android.Manifest;
+import android.content.DialogInterface;
+import android.content.pm.PackageManager;
 import android.opengl.GLES10;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
@@ -27,6 +33,7 @@ import butterknife.OnClick;
 public class WallpaperActivity extends AppCompatActivity implements
         WallpaperView {
 
+    private static final int STORAGE_PERM = 9;
     @Bind(R.id.progress_wheel) ProgressWheel progressWheel;
     @Bind(R.id.ssiv_wallpaper) SubsamplingScaleImageView wallpaperView;
     @Bind(R.id.btn_favorite) ImageView favoriteBtn;
@@ -68,6 +75,42 @@ public class WallpaperActivity extends AppCompatActivity implements
                 msg("Sajjin!");
             }
         });
+
+        // permissions
+
+        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE) !=
+                PackageManager.PERMISSION_GRANTED) {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+                new AlertDialog.Builder(this)
+                        .setTitle("Storage permission")
+                        .setMessage("This app requires read/write storage permissions to function correctly. Please consider granting permission.")
+                        .setOnDismissListener(new DialogInterface.OnDismissListener() {
+                            @Override public void onDismiss(DialogInterface dialogInterface) {
+                                ActivityCompat.requestPermissions(WallpaperActivity.this, new String[]{
+                                        Manifest.permission.WRITE_EXTERNAL_STORAGE
+                                }, STORAGE_PERM);
+                            }
+                        })
+                        .create()
+                        .show();
+            } else {
+                ActivityCompat.requestPermissions(this, new String[]{
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE
+                }, STORAGE_PERM);
+            }
+        }
+
+    }
+
+    @Override public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode) {
+            case STORAGE_PERM:
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    // Wohoo got it.
+                }
+
+        }
     }
 
     private void onFatalError() {

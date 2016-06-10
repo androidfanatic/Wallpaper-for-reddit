@@ -8,13 +8,13 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:bottomMargin="0dp"
         app:containerId="@+id/fabtoolbar_container"
         app:fabId="@+id/fabtoolbar_fab"
         app:fabToolbarId="@+id/fabtoolbar_toolbar"
         app:fadeInFraction="0.2"
         app:hideDuration="200"
-        app:rightMargin="10dp"
+        app:rightMargin="8dp"
+        app:bottomMargin="8dp"
         app:showDuration="400">
 
 
