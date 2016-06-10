@@ -93,6 +93,7 @@ public class WallpaperActivity extends AppCompatActivity implements
                         })
                         .create()
                         .show();
+
             } else {
                 ActivityCompat.requestPermissions(this, new String[]{
                         Manifest.permission.WRITE_EXTERNAL_STORAGE
