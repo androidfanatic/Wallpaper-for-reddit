@@ -106,9 +106,10 @@ public class WallpaperIOUtils {
 
     public static void share(Activity activity, Wallpaper wallpaper) {
         String path = WallpaperIOUtils.getPath(wallpaper);
+        System.out.println("PATH:" + path);
         Intent share = new Intent(Intent.ACTION_SEND);
         share.setType(MIME_TYPE);
-        share.putExtra(Intent.EXTRA_STREAM, Uri.parse(path));
+        share.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(new File(path)));
         activity.startActivity(Intent.createChooser(share, "Share Wallpaper"));
     }
 }
